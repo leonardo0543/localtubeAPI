@@ -12,12 +12,12 @@ function qmconection(video){
   conn.createChannel(function(err, ch) {
     var q = 'video';
     //console.log(video);
-    var msg = video.url+' '+video.splitpart+' '+video.timepart+' '+video.isvideo+' '+video.id;
+    //var msg = video.url+' '+video.splitpart+' '+video.timepart+' '+video.isvideo+' '+video.id;
     //console.log(msg);
     ch.assertQueue(q, {durable: false});
     // Note: on Node 6 Buffer.from(msg) should be used
-    ch.sendToQueue(q, new Buffer(msg));
-    console.log(msg);
+    ch.sendToQueue(q, new Buffer(JSON.stringify(video)));
+    console.log(video);
     setTimeout(function() { conn.close();}, 500);
   });
 });
