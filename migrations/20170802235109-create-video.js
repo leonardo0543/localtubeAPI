@@ -17,6 +17,15 @@ module.exports = {
       state: {
         type: Sequelize.STRING
       },
+      splitpart: {
+        type: Sequelize.INTEGER
+      },
+      timepart: {
+        type: Sequelize.INTEGER
+      },
+      isvideo: {
+        type: Sequelize.BOOLEAN
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
